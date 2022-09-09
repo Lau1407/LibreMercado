@@ -12,7 +12,7 @@ class usuarioController extends Controller
     public function usuarioCreate(Request $request){
         $datacreate = new Usuarios();
         $datacreate->nombre = $request->nombre;
-        $datacreate->contraseña = $request->contraseña;
+        $datacreate->apellido = $request->apellido;
         $datacreate->email = $request->email;
         $datacreate->save();
         return response()-> json([
@@ -21,8 +21,8 @@ class usuarioController extends Controller
         ]);
     }
     public function usuarioDelete(Request $request){
-        if(Usuarios::where("nombre",$request->nombre)->exists()){
-            $datadelete = Usuarios::find($request->nombre);
+        if(Usuarios::where("id",$request->id)->exists()){
+            $datadelete = Usuarios::find($request->id);
             $datadelete -> delete();
             return response()-> json([
                 "status" => 1,
