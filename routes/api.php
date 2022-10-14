@@ -29,7 +29,7 @@ Route::post("producto_create", [productoController::class, "productoCreate"]);
 Route::get("producto_get_all", [productoController::class, "productoGetAll"]);
 Route::get("producto_get/{id}", [productoController::class, "productoGet"]);
 Route::delete("producto_delete/{id}", [productoController::class, "productoDelete"]); 
-Route::put('products/{id}', [productoController::class, "productoUpdate"]);
+Route::put("products/{id}", [productoController::class, "productoUpdate"]);
 
 
 

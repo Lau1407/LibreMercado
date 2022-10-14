@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Producto;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Productos;
-use Symfony\Component\HttpFoundation\ResponseHeaderBag;
+use Illuminate\Auth\Access\Response;
+
 
 class productoController extends Controller
 {
@@ -22,7 +23,7 @@ class productoController extends Controller
     }
     public function productUpdate($id,Request $request){
         if(Productos::where("id",$id)->exists()){
-            $data = Productos::find($id);
+        $data = Productos::find($id);
         $data->nombre = $request->nombre;
         $data->descripcion = $request->descripcion;
         $data->stock = $request->stock;
