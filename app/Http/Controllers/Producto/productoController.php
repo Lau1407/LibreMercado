@@ -21,12 +21,12 @@ class productoController extends Controller
             "mesagge" => "producto creado correctamente"
         ]);
     }
-    public function productUpdate($id,Request $request){
+    public function productoUpdate($id,Request $request){
         if(Productos::where("id",$id)->exists()){
         $data = Productos::find($id);
         $data->nombre = $request->nombre;
-        $data->descripcion = $request->descripcion;
-        $data->stock = $request->stock;
+        $data->descripcion = $request->Descripcion;
+        $data->stock = $request->Stock;
         $data->save();
         return response()-> json([
             "status" => 1,
