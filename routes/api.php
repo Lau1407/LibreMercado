@@ -33,7 +33,7 @@ Route::put("products/{id}", [productoController::class, "productoUpdate"]);
 
 
 
-Route::post("usuario_create", [usuarioController::class, "usuarioCreate"]);
+Route::post("crear_usuario", [usuarioController::class, "usuarioCreate"]);
 Route::get("usuario_get", [usuarioController::class, "usuarioGet"]);
 Route::delete("usuario_delete", [usuarioController::class, "usuarioDelete"]); 
 

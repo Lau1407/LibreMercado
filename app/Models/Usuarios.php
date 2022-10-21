@@ -13,8 +13,7 @@ class Usuarios extends Model
 
     protected $fillable = [
         "nombre",
-        "apellido",
-        "email"
+        "contrasena"
     ];
     
     public $timestamps = false;

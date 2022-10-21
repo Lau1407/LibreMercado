@@ -12,8 +12,7 @@ class usuarioController extends Controller
     public function usuarioCreate(Request $request){
         $datacreate = new Usuarios();
         $datacreate->nombre = $request->nombre;
-        $datacreate->apellido = $request->apellido;
-        $datacreate->email = $request->email;
+        $datacreate->contrasena = $request->contrasena;
         $datacreate->save();
         return response()-> json([
             "status" => 1,
