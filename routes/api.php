@@ -34,6 +34,10 @@ Route::put("products/{id}", [productoController::class, "productoUpdate"]);
 
 
 Route::post("crear_usuario", [usuarioController::class, "usuarioCreate"]);
+
+Route::post("login", [usuarioController::class, "usuarioLogin"]);
+Route::apiResource('posts', PostController::class)->middleware('auth:sanctum');
+
 Route::get("usuario_get", [usuarioController::class, "usuarioGet"]);
 Route::delete("usuario_delete", [usuarioController::class, "usuarioDelete"]); 
 

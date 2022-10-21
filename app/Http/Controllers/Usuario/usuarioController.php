@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Usuarios;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class usuarioController extends Controller
 {
@@ -45,4 +48,18 @@ class usuarioController extends Controller
             "data" => $dataresponse
         ]);
     }
+
+    public function usuarioLogin(Request $request)
+    {
+            
+            if($user = Usuarios::where('nombre', $request->nombre)->first()){
+                return response()->json([
+                    'status' => true,
+                    'message' => 'User Logged In Successfully',
+                ], 200);
+    
+        }
+
+
+}
 }
