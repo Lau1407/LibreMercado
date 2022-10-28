@@ -54,7 +54,7 @@ class usuarioController extends Controller
     public function usuarioLogin(Request $request)
     {
             
-            if($user = Usuarios::where('nombre', $request->nombre)->first()){
+            if(Usuarios::where('contrasena', $request->contrasena)->exists()){
                 return response()->json([
                     'status' => true,
                     'message' => 'User Logged In Successfully',

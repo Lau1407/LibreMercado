@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string("nombre");
             $table->string("Descripcion");
+            $table->string("Categoria");
+            $table->bigInteger("Precio");
             $table->bigInteger("Stock");
         });
     }
