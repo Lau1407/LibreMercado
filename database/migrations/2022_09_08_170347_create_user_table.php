@@ -17,10 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string("nombre");
             $table->string("contrasena");
-            $table->string("apellido");
             $table->string("email");
             $table->string("localidad");
-            $table->string("edad");
+            $table->bigInteger("edad");
            
         });
     }
