@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string("contrasena");
             $table->string("email");
             $table->string("localidad");
-            $table->bigInteger("edad");
            
         });
     }

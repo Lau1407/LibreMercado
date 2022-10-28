@@ -13,11 +13,8 @@ class usuarioController extends Controller
         $datacreate = new Usuarios();
         $datacreate->nombre = $request->nombre;
         $datacreate->contrasena = $request->contrasena;
-        $datacreate->apellido =$request->apellido;
-        $datacreate->edad =$request->edad;
         $datacreate->email =$request->email;
         $datacreate->localidad =$request->localidad;
-
         $datacreate->save();
         return response()-> json([
             "status" => 1,
