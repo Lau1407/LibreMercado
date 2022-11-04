@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\Api\ApiController;
+use App\Http\Controllers\categoria\categoriaController;
 use App\http\Controllers\Producto\productoController;
 use App\http\Controllers\Usuario\usuarioController;
 /*
@@ -40,5 +41,8 @@ Route::post("login", [usuarioController::class, "usuarioLogin"]);
 
 Route::get("usuario_get", [usuarioController::class, "usuarioGet"]);
 Route::delete("usuario_delete", [usuarioController::class, "usuarioDelete"]); 
+
+Route::post("crear_categoria",[categoriaController::class, "generarCategorias"]);
+Route::get("categoria_get", [categoriaController::class, "getAllCategorias"]);
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Producto;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Productos;
+use App\Models\Categorias;
 use Illuminate\Auth\Access\Response;
 
 
@@ -23,6 +24,7 @@ class productoController extends Controller
             "mesagge" => "producto creado correctamente"
         ]);
     }
+    
     public function productoUpdate($id,Request $request){
         if(Productos::where("id",$id)->exists()){
         $data = Productos::find($id);
@@ -66,6 +68,23 @@ class productoController extends Controller
             $dataresponse
         );
     }
+    
+    public function generarCategorias(Request $request){
+        $categoria = new Categorias();
+        $categoria->nombre = $request->nombre;
+        $categoria->save();
+        return response()-> json([
+           "status" => 1,
+           "mesagge" => "producto creado correctamente"
+       ]);
+      }
+   
+      public function getAllCategorias(){
+         $categorias = Categorias::get();
+         return response()-> json(
+              $categorias
+         );
+      }
     
 }
 
