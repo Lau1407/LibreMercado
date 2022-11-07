@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string("Categoria");
             $table->bigInteger("Precio");
             $table->bigInteger("Stock");
+    
         });
     }
 

@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Usuarios;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
+
 class usuarioController extends Controller
+
 {
     public function usuarioCreate(Request $request){
         $datacreate = new Usuarios();
@@ -48,14 +50,16 @@ class usuarioController extends Controller
         ]);
     }
 
+    
+
     public function usuarioLogin(Request $request)
     {
             
-            if(Usuarios::where('contrasena', $request->contrasena)->exists()){
-                return response()->json([
-                    'status' => true,
-                    'message' => 'User Logged In Successfully',
-                ], 200);
+     if(Usuarios::where('nombre', $request->nombre)->exists() && Usuarios::where('contrasena', $request->contrasena)->exists()){
+         return response()->json([
+         'status' => true,
+         'message' => 'User Logged In Successfully',
+         ], 200);
     
         }
 

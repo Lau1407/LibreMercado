@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Productos;
 use App\Models\Categorias;
 use Illuminate\Auth\Access\Response;
-
+use Illuminate\Support\Facades\DB;
 
 class productoController extends Controller
 {
@@ -18,6 +18,7 @@ class productoController extends Controller
         $datacreate->categoria = $request->categoria;
         $datacreate->precio = $request->precio;
         $datacreate->stock = $request->stock;
+  
         $datacreate->save();
         return response()-> json([
             "status" => 1,
@@ -75,7 +76,7 @@ class productoController extends Controller
         $categoria->save();
         return response()-> json([
            "status" => 1,
-           "mesagge" => "producto creado correctamente"
+           "mesagge" => "categoria creado correctamente"
        ]);
       }
    
@@ -85,8 +86,14 @@ class productoController extends Controller
               $categorias
          );
       }
-    
-}
 
-
+       public function restarStock($Stock, Request $request){ 
+        $dataso = Productos::find($Stock);
+        $dataso->stock - $request->Stock;
+        $dataso ->save();
+        return response()-> json([
+            $dataso
+        ]);
+      }   
+    }
 
