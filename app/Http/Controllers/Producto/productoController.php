@@ -31,6 +31,8 @@ class productoController extends Controller
         $data = Productos::find($id);
         $data->nombre = $request->nombre;
         $data->descripcion = $request->Descripcion;
+        $data->categoria = $request->categoria;
+        $data->precio= $request->Precio;
         $data->stock = $request->Stock;
         $data->save();
         return response()-> json([
