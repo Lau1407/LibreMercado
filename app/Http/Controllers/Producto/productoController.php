@@ -89,13 +89,22 @@ class productoController extends Controller
          );
       }
 
-       public function restarStock($Stock, Request $request){ 
-        $dataso = Productos::find($Stock);
-        $dataso->stock - $request->Stock;
-        $dataso ->save();
-        return response()-> json([
-            $dataso
-        ]);
-      }   
+       public function restarStock($id,Request $request){ 
+           $producto = Productos::find($id);
+           $producto->Stock= $producto->Stock - intval($request->cantidadItems); 
+           $out = new \Symfony\Component\Console\Output\ConsoleOutput();
+           $out->writeln(gettype($request->cantidadItems));
+           $out->writeln(intval($request->cantidadItems));
+           $out->writeln($request);
+           $producto->save();
+
+           return response() -> json([
+            
+           ]);
+           
+          }
     }
+
+
+
 
