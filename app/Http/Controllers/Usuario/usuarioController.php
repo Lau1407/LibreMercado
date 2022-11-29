@@ -61,6 +61,11 @@ class usuarioController extends Controller
          'message' => 'User Logged In Successfully',
          ], 200);
     
+        }else{
+            return response()->json([
+                'status' => false,
+                'message' => 'User Logged In Successfully',
+                ], 404);
         }
 
 
