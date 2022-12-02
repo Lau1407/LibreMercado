@@ -17,6 +17,7 @@ class Productos extends Model
         "categoria",
         "precio",
         "stock",
+        "Vendedor"
 
     ];
     

@@ -18,6 +18,7 @@ class productoController extends Controller
         $datacreate->categoria = $request->categoria;
         $datacreate->precio = $request->precio;
         $datacreate->stock = $request->stock;
+        $datacreate->vendedor = $request->vendedor;
   
         $datacreate->save();
         return response()-> json([
