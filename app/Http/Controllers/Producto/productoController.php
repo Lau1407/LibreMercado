@@ -19,7 +19,6 @@ class productoController extends Controller
         $datacreate->precio = $request->precio;
         $datacreate->stock = $request->stock;
         $datacreate->vendedor = $request->vendedor;
-  
         $datacreate->save();
         return response()-> json([
             "status" => 1,
@@ -73,6 +72,8 @@ class productoController extends Controller
         );
     }
     
+   
+    
     public function generarCategorias(Request $request){
         $categoria = new Categorias();
         $categoria->nombre = $request->nombre;
@@ -104,6 +105,17 @@ class productoController extends Controller
            ]);
            
           }
+          public function verProductoVendedor($vendedor){
+            if(Productos::where("vendedor",$vendedor)->exists()){
+            $ven = Productos::find($vendedor); 
+            $out = new \Symfony\Component\Console\Output\ConsoleOutput();
+            $out->writeln($vendedor);
+            return response()-> json(
+                 $ven
+                     
+            );
+        }
+    }
     }
 
 

@@ -26,20 +26,23 @@ Route::post("data_create", [ApiController::class, "dataCreate"]);
 Route::get("data_get", [ApiController::class, "dataGet"]);
 Route::delete("data_delete", [ApiController::class, "dataDelete"]); 
 
+//--------------------------------PRODUCTO------------------------------------
+
 Route::post("producto_create", [productoController::class, "productoCreate"]);
 Route::get("producto_get_all", [productoController::class, "productoGetAll"]);
 Route::get("producto_get/{id}", [productoController::class, "productoGet"]);
 Route::delete("producto_delete/{id}", [productoController::class, "productoDelete"]); 
 Route::put("products/{id}", [productoController::class, "productoUpdate"]);
 Route::post("comprar/{id}", [productoController::class, "restarStock"]);
+Route::get("verProductos/{vendedor}", [productoController::class, "verProductoVendedor"]);
+//-------------------------------USUARIO--------------------------------------
 
 Route::post("crear_usuario", [usuarioController::class, "usuarioCreate"]);
-
 Route::post("login", [usuarioController::class, "usuarioLogin"]);
-
-
 Route::get("usuario_get", [usuarioController::class, "usuarioGet"]);
 Route::delete("usuario_delete", [usuarioController::class, "usuarioDelete"]); 
+
+//----------------------------CATEGORIA---------------------------------------
 
 Route::post("crear_categoria",[categoriaController::class, "generarCategorias"]);
 Route::get("categoria_get", [categoriaController::class, "getAllCategorias"]);
